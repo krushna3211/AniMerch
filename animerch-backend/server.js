@@ -25,7 +25,9 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5001;
-
+app.get("/", (req, res) => {
+  res.send("AniMerch backend is running successfully 🚀");
+});
 // --- Use the auth routes ---
 // Any request to /api/auth/... will be handled by authRoutes
 app.use('/api/auth', authRoutes);
