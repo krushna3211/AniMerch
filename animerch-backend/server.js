@@ -1,56 +1,76 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
-const cors = require('cors'); 
-const path = require('path'); // <-- 1. IMPORT 'path' MODULE
+// =========================
+// AniMerch Backend Server
+// =========================
 
-// --- Import our new route file ---
-const authRoutes = require('./routes/auth');
-const adminRoutes = require('./routes/adminRoutes'); 
-const categoryRoutes = require('./routes/categoryRoutes');
-const productRoutes = require('./routes/productRoutes'); 
-const orderRoutes = require('./routes/orderRoutes');
+const express = require("express");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+const cors = require("cors");
+const path = require("path");
 
+// --- Import route files ---
+const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/adminRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
+const productRoutes = require("./routes/productRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+
+// =========================
 // Load environment variables
+// =========================
 dotenv.config();
 
-// Connect to MongoDB
+// =========================
+// Connect to MongoDB Atlas
+// =========================
 connectDB();
 
+// =========================
+// Initialize Express app
+// =========================
 const app = express();
 
-// --- Middleware to parse JSON bodies ---
-// This lets our app accept JSON data from forms
-app.use(cors());
-app.use(express.json());
+// --- Middlewares ---
+app.use(cors()); // Allow cross-origin requests
+app.use(express.json()); // Parse JSON bodies
 
-const PORT = process.env.PORT || 5001;
+// =========================
+// API Routes
+// =========================
+app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
+
+// --- Static uploads folder ---
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// --- Simple test route ---
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from the AniMerch backend!" });
+});
+
+// --- Health check route for Render ---
+// app.get("/", (req, res) => {
+//   res.send("AniMerch backend is running successfully 🚀");
+// });
+
+// =========================
+// Serve Frontend (Static)
+// =========================
+// Make sure your frontend build or static files exist inside '../animerch-frontend'
 app.use(express.static(path.join(__dirname, "../animerch-frontend")));
 
-app.get("/*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../animerch-frontend/index.html"));
 });
-app.get("/", (req, res) => {
-  res.send("AniMerch backend is running successfully 🚀");
-});
-// --- Use the auth routes ---
-// Any request to /api/auth/... will be handled by authRoutes
-app.use('/api/auth', authRoutes);
-app.use('/api/admin', adminRoutes); 
-app.use('/api/categories', categoryRoutes); 
-app.use('/api/products', productRoutes);
-app.use('/api/orders', orderRoutes); 
 
-
-// --- 2. MAKE UPLOADS FOLDER STATIC ---
-// This makes the 'uploads' folder accessible to the browser
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
-
-// Test route (you can keep this or remove it)
-app.get('/api', (req, res) => {
-    res.json({ message: "Hello from the AniMerch backend!" });
-});
+// =========================
+// Start Server
+// =========================
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`✅ Server is running on port ${PORT}`);
 });
