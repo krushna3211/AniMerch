@@ -10,7 +10,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes'); 
 const orderRoutes = require('./routes/orderRoutes');
-
+const __dirname = path.resolve();
 // Load environment variables
 dotenv.config();
 
@@ -25,6 +25,11 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5001;
+app.use(express.static(path.join(__dirname, "../animerch-frontend")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../animerch-frontend/index.html"));
+});
 app.get("/", (req, res) => {
   res.send("AniMerch backend is running successfully 🚀");
 });
