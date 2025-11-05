@@ -10,7 +10,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes'); 
 const orderRoutes = require('./routes/orderRoutes');
-const __dirname = path.resolve();
+
 // Load environment variables
 dotenv.config();
 
