@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AniMerch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">AniMerch</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for figures, hoodies...">
+                <button type="submit">Go</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-main">
+        <h2>Secure Checkout</h2>
+        
+        <div class="checkout-layout">
+            
+            <div class="checkout-forms">
+                <form id="checkout-form">
+                    <h3>1. Shipping Details</h3>
+                    <div class="input-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="text" id="pincode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+                    <h3 class="form-section-divider">2. Payment Information</h3>
+                    
+                    <div class="input-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" placeholder="MM / YY" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" placeholder="XXX" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="order-summary-box">
+                <h3>Your Order</h3>
+                
+                <div class="summary-item">
+                    <img src="https://via.placeholder.com/50x50.png?text=Item+1" alt="">
+                    <span>Gojo Satoru Figure (x1)</span>
+                    <span class="item-price">$189.99</span>
+                </div>
+                
+                <div class="summary-item">
+                    <img src="https://via.placeholder.com/50x50.png?text=Item+2" alt="">
+                    <span>Edgerunners Hoodie (x1)</span>
+                    <span class="item-price">$55.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$244.99</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>$10.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>$254.99</span>
+                </div>
+                
+                <button type="submit" form="checkout-form" class="cta-button pulse-glow">Place Order</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="seller-signup.html">Become a Seller</a>
+        </div>
+        <p>&copy; 2025 AniMerch. All rights reserved.</p>
+    </footer>
+    
+<script src="js/checkout.js"></script>
+</body>
+</html>

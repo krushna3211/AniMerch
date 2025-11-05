@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Signup - AniMerch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">AniMerch</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><a href="#">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container" style="max-width: 600px;"> <form id="seller-signup-form" class="auth-form active-form">
+                <h2>Become a Seller</h2>
+                <p class="form-subtitle">Fill out your details for verification.</p>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="seller-username">Username</label>
+                        <input type="text" id="seller-username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="seller-shop-name">Shop Name</label>
+                        <input type="text" id="seller-shop-name" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="seller-email">Email</label>
+                    <input type="email" id="seller-email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="seller-password">Password</label>
+                        <input type="password" id="seller-password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="seller-gst">GST Number (or Business ID)</label>
+                        <input type="text" id="seller-gst" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="seller-address">Business Address</label>
+                    <textarea id="seller-address" rows="3" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="seller-description">Tell us about your products</label>
+                    <textarea id="seller-description" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="auth-button">Submit for Verification</button>
+                
+                <p class="form-toggle-text">
+                    Already have an account? <a href="login.html" id="show-login">Login</a>
+                </p>
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AniMerch. All rights reserved.</p>
+    </footer>
+
+<script src="js/seller-signup.js"></script>
+    
+</body>
+</html>

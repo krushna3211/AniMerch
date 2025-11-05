@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - AniMerch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">AniMerch</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for figures, hoodies...">
+                <button type="submit">Go</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="seller-dashboard.html">Seller Dashboard</a></li> 
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <h2>Seller Dashboard</h2>
+        
+        <div class="dashboard-layout">
+            
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#orders" class="active-link">Incoming Orders</a></li>
+                        <li><a href="#products">My Products</a></li>
+                        <li><a href="#add-product">Add New Product</a></li>
+                        <li><a href="#">Shop Settings</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="dashboard-content">
+                
+                <div id="orders" class="dashboard-section">
+                    <h3>Incoming Orders (2)</h3>
+                    <table class="seller-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Item(s)</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#10057</td>
+                                <td>customer_kenji</td>
+                                <td>Gojo Satoru Figure (x1)</td>
+                                <td>$189.99</td>
+                                <td class="action-buttons">
+                                    <button class="btn-accept">Accept</button>
+                                    <button class="btn-reject">Reject</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#10058</td>
+                                <td>yuki_s</td>
+                                <td>Edgerunners Hoodie (x2)</td>
+                                <td>$110.00</td>
+                                <td class="action-buttons">
+                                    <button class="btn-accept">Accept</button>
+                                    <button class="btn-reject">Reject</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="products" class="dashboard-section">
+                    <h3>My Products</h3>
+                    <table class="seller-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cart-product-info">
+                                    <img src="https://via.placeholder.com/50x50.png?text=Gojo" alt="">
+                                    <div><a href="#">Gojo Satoru Figure</a></div>
+                                </td>
+                                <td>$189.99</td>
+                                <td>5</td>
+                                <td><span class="status-listed">Listed</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn-secondary">Edit</button>
+                                    <button class="btn-reject">Unlist</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cart-product-info">
+                                    <img src="https://via.placeholder.com/50x50.png?text=Hoodie" alt="">
+                                    <div><a href="#">Edgerunners Hoodie</a></div>
+                                </td>
+                                <td>$55.00</td>
+                                <td>23</td>
+                                <td><span class="status-listed">Listed</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn-secondary">Edit</button>
+                                    <button class="btn-reject">Unlist</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<div id="add-product" class="dashboard-section">
+    <h3 id="form-title">Add New Product</h3> <form id="add-product-form" class="dashboard-form">
+
+        <input type="hidden" id="product-id">
+
+        <div class="input-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" required>
+        </div>
+        <div class="input-group">
+            <label for="product-desc">Description</label>
+            <textarea id="product-desc" rows="4"></textarea>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="product-price">Price ($)</label>
+                <input type="number" id="product-price" min="0" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="product-stock">Stock Quantity</label>
+                <input type="number" id="product-stock" min="0" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="product-category">Category</label>
+            <select id="product-category">
+                </select>
+        </div>
+
+        <div class="input-group" id="current-images-block" style="display: none;">
+            <label>Current Images (Check to remove)</label>
+            <div id="current-images-list">
+                </div>
+        </div>
+
+        <div class="input-group">
+            <label for="product-images">Upload New Images (Up to 5)</label>
+            <input type="file" id="product-images" multiple accept="image/*">
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="cta-button" id="form-submit-btn">Add Product</button>
+            <button type="button" class="btn-secondary" id="form-cancel-btn" style="display: none;">Cancel Edit</button>
+        </div>
+    </form>
+</div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="seller-signup.html">Become a Seller</a>
+        </div>
+        <p>&copy; 2025 AniMerch. All rights reserved.</p>
+    </footer>
+    
+<script src="js/seller-dashboard.js"></script>
+</body>
+</html>

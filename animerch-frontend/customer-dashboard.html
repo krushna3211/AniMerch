@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - AniMerch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">AniMerch</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for figures, hoodies...">
+                <button type="submit">Go</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="customer-dashboard.html">Profile</a></li> 
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <h2>Your Dashboard</h2>
+        
+        <div class="dashboard-layout">
+            
+            <aside class="dashboard-sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active-link">Order History</a></li>
+                        <li><a href="#">Profile Settings</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <section class="dashboard-content">
+                <h3>Your Order History</h3>
+                
+                <div class="order-history-list">
+                    <div class="order-card">
+                        <div class="order-card-header">
+                            <div>
+                                <h4>Order #10056</h4>
+                                <small>Placed on: 03 Nov 2025</small>
+                            </div>
+                            <div class="order-status shipped">
+                                Shipped
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <p>Items: Gojo Satoru Figure (x1), Edgerunners Hoodie (x1)</p>
+                            <p>Total: <strong>$254.99</strong></p>
+                        </div>
+                        <div class="order-card-footer">
+                            <a href="#" class="btn-secondary">View Details</a>
+                            <a href="#" class="btn-secondary">Track Package</a>
+                        </div>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-card-header">
+                            <div>
+                                <h4>Order #10049</h4>
+                                <small>Placed on: 28 Oct 2025</small>
+                            </div>
+                            <div class="order-status delivered">
+                                Delivered
+                            </div>
+                        </div>
+                        <div class="order-card-body">
+                            <p>Items: Nezuko in Box Enamel Pin (x3)</p>
+                            <p>Total: <strong>$41.50</strong></p>
+                        </div>
+                        <div class="order-card-footer">
+                            <a href="#" class="btn-secondary">View Details</a>
+                            <a href="#" class="btn-secondary">Leave a Review</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="seller-signup.html">Become a Seller</a>
+        </div>
+        <p>&copy; 2025 AniMerch. All rights reserved.</p>
+    </footer>
+    
+<script src="js/customer-dashboard.js"></script>
+</body>
+</html>

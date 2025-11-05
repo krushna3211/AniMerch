@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title will be dynamic later, but we'll use a placeholder -->
+    <title>Product Detail - AniMerch</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="index.html">AniMerch</a>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for figures, hoodies...">
+                <button type="submit">Go</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+                <li><a href="#">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-detail-main">
+        <!-- This is a placeholder. In a real app, this data would be loaded dynamically -->
+        <div class="product-layout">
+            
+            <!-- Column 1: Image Gallery -->
+            <div class="product-gallery">
+                <div class="gallery-main-image">
+                    <img src="https://via.placeholder.com/500x500.png?text=Loading..." alt="Main product view" id="main-product-image">
+
+                    <span class="gallery-nav prev" id="gallery-prev">&lt;</span>
+                    <span class="gallery-nav next" id="gallery-next">&gt;</span>
+                </div>
+                <div class="gallery-thumbnails">
+                    <img src="https://via.placeholder.com/100x100.png?text=Thumb+1" alt="Product thumbnail 1" class="active-thumb">
+                    <img src="https://via.placeholder.com/100x100.png?text=Thumb+2" alt="Product thumbnail 2">
+                    <img src="https://via.placeholder.com/100x100.png?text=Thumb+3" alt="Product thumbnail 3">
+                    <img src="https://via.placeholder.com/100x100.png?text=Thumb+4" alt="Product thumbnail 4">
+                </div>
+            </div>
+
+            <!-- Column 2: Product Info -->
+            <div class="product-info">
+                <h1>Gojo Satoru 1/7 Scale Figure</h1>
+                <p class="product-info-price">$189.99</p>
+                <p class="product-info-stock in-stock">In Stock</p>
+                
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" value="1" min="1">
+                    </div>
+                    <!-- This button will have the glowing effect -->
+                    <button class="cta-button pulse-glow">Add to Cart</button>
+                </div>
+
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>
+                        From the hit anime series Jujutsu Kaisen, this 1/7 scale figure of Satoru Gojo
+                        is a must-have for any collector. Captured in his signature pose, the figure
+                        features incredible detail and a dynamic sculpt.
+                    </p>
+                    <ul>
+                        <li>Manufacturer: eStream</li>
+                        <li>Height: Approx. 25cm</li>
+                        <li>Material: PVC & ABS</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Full-Width Reviews Section -->
+        <div class="product-reviews">
+            <h2>Customer Reviews</h2>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Kenji T.</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-body">
+                    Absolutely stunning figure! The quality is insane and it arrived perfectly packaged.
+                    10/10 would buy again.
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Yuki_S</span>
+                    <span class="review-rating">★★★★☆</span>
+                </div>
+                <p class="review-body">
+                    Great figure, but the box was slightly damaged. The figure itself is fine.
+                </p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Collector001</span>
+                    <span class="review-rating">★★★★★</span>
+                </div>
+                <p class="review-body">
+                    A centerpiece for my collection. The detail on the eyes is perfect.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="seller-signup.html">Become a Seller</a>
+        </div>
+        <p>&copy; 2025 AniMerch. All rights reserved.</p>
+    </footer>
+    
+<script src="js/product-detail.js"></script>
+</body>
+</html>
