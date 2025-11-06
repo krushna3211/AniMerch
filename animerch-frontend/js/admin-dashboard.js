@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryListUl = document.querySelector('.category-list ul');
 
     // --- API URLs ---
-    const API_BASE = 'https://animerch-backend.onrender.com/api';
+    const API_BASE = 'http://localhost:5000/api';
 
     // --- 2. Main function to check auth and fetch data ---
     async function initializeDashboard() {
