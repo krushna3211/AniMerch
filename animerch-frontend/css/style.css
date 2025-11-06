@@ -775,6 +775,7 @@ footer {
     display: flex;
     align-items: center;
 }
+
 .cart-product-info img {
     width: 80px;
     height: 80px;
@@ -1312,6 +1313,8 @@ footer {
 
 /* --- Seller Dashboard Edit Product --- */
 
+/* --- Seller Dashboard Edit Product --- */
+
 #current-images-list {
     display: flex;
     gap: 1rem;
@@ -1328,11 +1331,16 @@ footer {
     gap: 0.5rem;
 }
 
+/* *
+* THIS IS THE IMPORTANT PART THAT FIXES THE IMAGES
+*
+*/
 .current-image-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
+    width: 100px;       /* Forces all images to be 100px wide */
+    height: 100px;      /* Forces all images to be 100px tall */
+    object-fit: cover;  /* Fills the 100x100 box, cropping if needed */
+    border-radius: 5px; /* Makes them look nice */
+    border: 1px solid var(--accent-2);
 }
 
 .current-image-item label {
@@ -1346,3 +1354,82 @@ footer {
     align-items: center;
     margin-top: 1rem;
 }
+
+/* --- Seller Dashboard Image Fix --- */
+
+/* 1. This fixes the small thumbnails in your "My Products" table */
+/* --- Fix Seller Dashboard Product Image Thumbnails --- */
+.seller-table .cart-product-info img {
+    width: 60px;              /* Thumbnail size */
+    height: 60px;
+    object-fit: cover;        /* Keeps aspect ratio and crops if needed */
+    border-radius: 6px;       /* Smooth edges */
+    margin-right: 12px;       /* Space between image and text */
+    border: 1px solid var(--accent-2);
+}
+
+/* 2. This fixes the larger images in the "Edit Product" form */
+#current-images-list .current-image-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--accent-2);
+}
+
+/* --- Force product thumbnails to be small in Seller Dashboard --- */
+.dashboard-content .seller-table td img {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    margin-right: 10px !important;
+    border: 1px solid var(--accent-2) !important;
+}
+
+/* --- Dark Mode Dropdown (Select) Fix --- */
+
+select {
+    /* 1. Remove default browser style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* 2. Add our dark theme styles */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    /* 3. Add a custom dark-mode arrow */
+    /* This is an SVG icon (a small white chevron) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f0f0f5' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem; /* Make room for the new arrow */
+}
+
+/* 4. Style the dropdown options themselves */
+select option {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* 5. Style the focus ring */
+select:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 10px var(--accent-2);
+}
+
+
+
+
+
+
