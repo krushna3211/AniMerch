@@ -196,6 +196,12 @@ router.post('/login', async (req, res) => {
                 // 5. Send the token back to the client
                 res.json({ 
                     token,
+                    userInfo: {
+                        _id: user.id,
+                        username: user.username,
+                        email: user.email,
+                        role: user.role
+                    },
                     message: `Welcome back, ${user.username}!`
                 });
             }
