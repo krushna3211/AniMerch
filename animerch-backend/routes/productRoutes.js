@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
         const product = await Product.findById(req.params.id)
             .populate('category', 'name')
             .populate('seller', 'sellerDetails.shopName')
-            .populate('reviews.user', 'username'); // Also populate the user for each review
+            .populate('reviews.user', 'username _id'); // Also populate the user for each review
 
         // 2. If no product is found, send a 404 error
         if (!product) {
@@ -38,14 +38,26 @@ router.get('/:id', async (req, res) => {
 
 
 // --- @route   GET /api/products ---
-// @desc    Get all listed products (for customers)
+// @desc    Get all listed products (can be filtered by category)
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        // We only find products that are marked as 'isListed'
-        const products = await Product.find({ isListed: true })
-            .populate('category', 'name') // Replaces the category ID with the category's name
-            .populate('seller', 'sellerDetails.shopName'); // Replaces the seller ID with their shopName
+        // --- THIS IS THE NEW LOGIC ---
+        const categoryId = req.query.category;
+
+        // Create a filter object. Default to only 'isListed'
+        const filter = { isListed: true };
+
+        // If a categoryId is provided in the query, add it to the filter
+        if (categoryId) {
+            filter.category = categoryId;
+        }
+        // --- END OF NEW LOGIC ---
+
+        // Find products using our dynamic filter
+        const products = await Product.find(filter)
+            .populate('category', 'name')
+            .populate('seller', 'sellerDetails.shopName');
 
         res.json(products);
     } catch (error) {
@@ -53,8 +65,6 @@ router.get('/', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
-
-
 
 
 // --- @route   POST /api/products ---
